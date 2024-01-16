@@ -27,22 +27,22 @@ def btnClick(btn,number):
             for key in answer_dict:
                 key["state"]=DISABLED
 
-            openCards = []
-            answer_dict = {}
-            openCardsCount = 0
-            correctAnswers += 1 #palielinam uzminēto attēlu komplektu skaitu
-            messagebox.showinfo("Vienādi attēli", "Esi uzminējis! Kopā uzminēti komplekti: " + str(correctAnswers))
+            openCards=[]
+            answer_dict={}
+            openCardsCount=0
+            correctAnswers += 1 #palielina uzminēto attēlu komplektu skaitu
+            #messagebox.showinfo("Vienādi attēli", "Esi uzminējis! Kopā uzminēti komplekti: " + str(correctAnswers))
         else :
             Tk.update(btn)
             time.sleep(0.5)
             for key in answer_dict:
-                key["image"] = "pyimage6"
-            openCardsCount = 0;
-            openCards = []
-            answer_dict = {}
+                key["image"]="pyimage6"
+            openCardsCount=0
+            openCards=[]
+            answer_dict={}
             #messagebox.showinfo("Vienādi attēli","Neuzminēji!")
 
-    if correctAnswers == 4:
+    if correctAnswers==5:
         messagebox.showinfo("Apsveicam!", "Spēle pabeigta")
 
     return 0
@@ -72,13 +72,13 @@ btn9=Button(width=180,height=180,image=bgImg, command=lambda:btnClick(btn9,9))
 btn0.grid(row=0, column=0)
 btn1.grid(row=0, column=1)
 btn2.grid(row=0, column=2)
-btn3.grid(row=1, column=0)
-btn4.grid(row=1, column=1)
-btn5.grid(row=1, column=2)
-btn6.grid(row=2, column=0)
-btn7.grid(row=2, column=1)
-btn8.grid(row=2, column=2)
-btn9.grid(row=0, column=0)
+btn3.grid(row=0, column=3)
+btn4.grid(row=0, column=4)
+btn5.grid(row=1, column=0)
+btn6.grid(row=1, column=1)
+btn7.grid(row=1, column=2)
+btn8.grid(row=1, column=3)
+btn9.grid(row=1, column=4)
 
 #attēlu masīvs
 ImageList=[myImg1,myImg1,myImg2,myImg2,myImg3,myImg3,myImg4,myImg4,myImg5,myImg5]
