@@ -11,6 +11,8 @@ correctAnswers=0 #skaita uzminēto attēlu komplektu skaitu
 openCards=[] #saraksts ar atvertajam kartinam (viena vai divas)
 answer_dict={} #kas ir piespiests, salidzinas ar atteliem no saraksta
 
+
+
 def btnClick(btn,number):
     
     global openCardsCount, openCards, answer_dict, correctAnswers
@@ -85,5 +87,28 @@ ImageList=[myImg1,myImg1,myImg2,myImg2,myImg3,myImg3,myImg4,myImg4,myImg5,myImg5
 
 #sajauc attēlus
 random.shuffle(ImageList)
+
+def infoLogs():
+    gameWindow=Toplevel()
+    gameWindow.title("Informācija par spēli")
+    gameWindow.geometry("900x130")
+    gameinfo=Label(gameWindow, text="Noklikšķiniet uz 2 kartītēm, tās atklās bildītes, ja šīs bildītes ir vienādas, apsveicu, es esat uzminējis pirmo pāri, ja nē, tad turpiniet klikšķināt, līdz visi pāri ir atminēti.")
+    gameinfo.grid(row=5,column=6)
+    return 0
+
+
+
+def newGame():
+    result = messagebox.askyesno("Jauna spēle", "Vai tu vēlies sākt jaunu spēli?")
+    reset()
+
+choice=Menu(gameWindow)    #Izveido opcijas
+gameWindow.config(menu=choice)
+options=Menu(choice,tearoff=FALSE)
+choice.add_cascade(label="Opcijas",menu=options)
+options.add_command(label="Jauna spēle",command=newGame)
+options.add_command(label="Iziet",command=gameWindow.quit)
+choice.add_command(label="Par programmu",command=infoLogs)
+
 
 gameWindow.mainloop()
